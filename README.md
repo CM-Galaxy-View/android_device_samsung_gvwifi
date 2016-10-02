@@ -1,33 +1,23 @@
-Device Tree For Samsung Galaxy J7 LTE
+Device Tree For Samsung Galaxy View WIFI
 ===================================== 
 
 Basic   | Spec Sheet
 -------:|:-------------------------
-CPU     | Qcta 1.5 GHz Cortex-A53
+CPU     | Qcta 1.6 GHz Cortex-A53
 CHIPSET | Samsung Exynos 7580
 GPU     | Mali-T720MP2
-Memory  | 1.5GB RAM
+Memory  | 2GB RAM
 Android | 5.1.1
-Storage | 16 GB
-MicroSD | Up to 128GB
-Battery | 3000 mAh
-Display | 5.5"
-Front Camera  | 5 MP, LED flash
-Rear Camera  | 13 MP,  4128 x 3096 pixels, autofocus, LED flash
+Storage | 32 GB
+MicroSD | Up to 258GB
+Battery | 5700 mAh
+Display | 18.4"
+Front Camera  | 2.1 MP
 
 
-![Galaxy J7 LTE](http://cdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j7-j700f-1.jpg "Galaxy J7 LTE")
+![Galaxy View WIFI](http://techbeasts.com/wp-content/uploads/2015/10/Galaxy-View.png "Galaxy View WIFI")
 
 This branch is for building CyanogenMod 13.0 Firmware.
 
+Model Supported : SM-T670
 
-Model Supported : SM-J700F SM-J700M SM-J700H
-
-
-TODO:
------
- - HWC VSync
- - Camera (co-related with HWC)
- - Figure Out Incoming Calls
- - random reboot (Need to Verify fixed or not)
- - Sepolicy needs to be fixed

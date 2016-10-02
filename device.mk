@@ -14,21 +14,21 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/j7eltexx
+LOCAL_PATH := device/samsung/gvwifi
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += device/samsung/j7eltexx/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/gvwifi/overlay
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := 320dpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_AAPT_PREBUILT_DPI := xhdpi hdpi
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -62,7 +62,6 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.samsungexynos7580 \
-    init.baseband.rc \
     init.samsung.rc \
     init.samsungexynos7580.rc \
     init.samsungexynos7580.usb.rc \
@@ -82,12 +81,8 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 PRODUCT_PACKAGES += \
     libsamsung_symbols
 
-# cpboot-daemon for modem
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ril/sbin/cbd:root/sbin/cbd
-
 # Inherit from Exynos7580-common
 $(call inherit-product, device/samsung/exynos7580-common/device-common.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/samsung/j7eltexx/j7eltexx-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/gvwifi/gvwifi-vendor.mk)

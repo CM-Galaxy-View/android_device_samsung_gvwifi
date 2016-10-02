@@ -390,8 +390,8 @@ on boot
    chmod 0664 /sys/class/power_supply/battery/batt_tune_ui_term_cur_1st
    chmod 0664 /sys/class/power_supply/battery/batt_tune_ui_term_cur_2nd
 
-    # Sensors permissions
-    # Accelerometer_sensor
+# Sensors permissions
+# Accelerometer_sensor
     chown system radio /sys/class/sensors/accelerometer_sensor/raw_data
     chown system radio /sys/class/sensors/accelerometer_sensor/calibration
     chown system radio /sys/class/sensors/accelerometer_sensor/reactive_alert
@@ -400,7 +400,7 @@ on boot
     chown system radio /sys/class/sensors/accelerometer_sensor/name
     chown system system /efs/calibration_data
     chmod 0666 /efs/calibration_data
-    # Proximity_sensor
+# Proximity_sensor
     chown system radio /sys/class/sensors/proximity_sensor/state
     chown system radio /sys/class/sensors/proximity_sensor/raw_data
     chown system radio /sys/class/sensors/proximity_sensor/prox_avg
@@ -410,12 +410,12 @@ on boot
     chown system radio /sys/class/sensors/proximity_sensor/thresh_low
     chown system radio /sys/class/sensors/proximity_sensor/vendor
     chown system radio /sys/class/sensors/proximity_sensor/name
-    # Light_sensor
+# Light_sensor
     chown system radio /sys/class/sensors/light_sensor/lux
     chown system radio /sys/class/sensors/light_sensor/raw_data
     chown system radio /sys/class/sensors/light_sensor/vendor
     chown system radio /sys/class/sensors/light_sensor/name
-    # Gyro_sensor
+# Gyro_sensor
     chown system radio /sys/class/sensors/gyro_sensor/power_on
     chown system radio /sys/class/sensors/gyro_sensor/power_off
     chown system radio /sys/class/sensors/gyro_sensor/temperature
@@ -423,14 +423,11 @@ on boot
     chown system radio /sys/class/sensors/gyro_sensor/selftest_dps
     chown system radio /sys/class/sensors/gyro_sensor/vendor
     chown system radio /sys/class/sensors/gyro_sensor/name
-    # Magnetic_sensor
-    chown system radio /sys/class/sensors/magnetic_sensor/selftest
+# Magnetic_sensor
     chown system radio /sys/class/sensors/magnetic_sensor/raw_data
-    chown system radio /sys/class/sensors/magnetic_sensor/adc
     chown system radio /sys/class/sensors/magnetic_sensor/vendor
     chown system radio /sys/class/sensors/magnetic_sensor/name
-    chown system radio /sys/class/sensors/magnetic_sensor/status
-    # MPL IIO
+# MPL IIO
     chown system system /dev/invensense
     chown system system /sys/bus/iio/devices/invensense/buffer/enable
     chown system system /sys/bus/iio/devices/invensense/buffer/length
@@ -440,7 +437,7 @@ on boot
     chmod 0664 /sys/bus/iio/devices/invensense/buffer/length
     chmod 0664 /sys/bus/iio/devices/invensense/control
 
-    #Meta event
+#Meta event
     chown system radio /sys/class/sensors/sensor_dev/flush
 
     # usb detect
@@ -480,13 +477,6 @@ service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF0000000000000
     group system
     oneshot
 
-#
-#service drm /system/bin/drmserver
-#    class main
-#    user drm
-#    group system drm inet drmrpc radio
-#
-
 # Sensorhub service
 service sensorhubservice /system/bin/sensorhubservice
     class main
@@ -524,39 +514,6 @@ service dhcpcd_usb0 /system/bin/dhcpcd -ABKL
 # for Wi-Fi only models
 on property:ro.radio.noril=yes
     stop ril-daemon
-
-service ril-daemon /system/bin/rild
-    class main
-    socket rild stream 660 root radio
-    socket rild-debug stream 660 radio system
-    socket rild-cas stream 660  casdrm mmb
-    user root
-    group radio cache inet misc audio sdcard_r sdcard_rw log vpn system
-    onrestart restart cpboot-daemon
-
-service ril-daemon1 /system/bin/rild -c 2
-    class main
-    socket rild2 stream 660 root radio
-    socket rild-debug2 stream 660 radio system
-    user root
-    group radio cache inet misc audio sdcard_r sdcard_rw log
-    disabled
-    onrestart restart cpboot-daemon
-
-on property:persist.sys.cpboot=disable
-    stop ril-daemon
-    stop cpboot-daemon
-
-service SMD-daemon /system/bin/smdexe
-    class main
-    user root
-    group system radio inet net_raw
-
-# start multiple rilds based on multisim property
-on property:ro.multisim.simslotcount=2
-    stop ril-daemon
-    start ril-daemon
-    start ril-daemon1	
 
 on fs
 # DIAG

@@ -12,24 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# This file is the build configuration for a full Android
-# build for j7eltexx hardware. This cleanly combines a set of
-# device-specific aspects (drivers) with a device-agnostic
-# product configuration (apps). Except for a few implementation
-# details, it only fundamentally contains two inherit-product
-# lines, full and j7eltexx, hence its name.
-#
-
 PRODUCT_RUNTIMES := runtime_libart_default
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, device/samsung/j7eltexx/device.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, device/samsung/gvwifi/device.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := j7eltexx
-PRODUCT_DEVICE := j7elte
+PRODUCT_NAME := gvwifi
+PRODUCT_DEVICE := gvwifiue
 PRODUCT_BRAND := Samsung
 PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := SM-J700F
+PRODUCT_MODEL := SM-T670
