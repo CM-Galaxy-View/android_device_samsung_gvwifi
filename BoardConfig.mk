@@ -24,6 +24,9 @@ DEVICE_PATH := device/samsung/gvwifi
 # CPU
 ENABLE_CPUSETS := true
 
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+
 # Kernel
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(DEVICE_PATH)/dt.img
 TARGET_KERNEL_CONFIG := cyanogenmod_gvwifi_defconfig
