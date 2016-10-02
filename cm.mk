@@ -25,3 +25,8 @@ PRODUCT_NAME := cm_gvwifi
 PRODUCT_DEVICE := gvwifi
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=gvwifi \
+    BUILD_FINGERPRINT="gvwifiue-user 5.1.1 LMY47X T670UEU1APE2 release-keys" \
+    PRIVATE_BUILD_DESC="samsung/gvwifiue/gvwifiue:5.1.1/LMY47X/T670UEU1APE2:user/release-keys"
