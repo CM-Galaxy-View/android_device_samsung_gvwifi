@@ -1,0 +1,6 @@
+# Universal7580
+ro.hardware=samsungexynos7580
+ro.chipname=exynos7580
+ro.arch=exynos7580
+ro.boot.bootdevice=13540000.dwmmc0
+persist.sys.usb.config=mtp,adb
