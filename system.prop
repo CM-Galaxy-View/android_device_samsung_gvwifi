@@ -1,10 +1,9 @@
-# Audio
-audio_hal.disable_two_mic=true
-
 # Display
-ro.sf.lcd_density=320
-ro.opengles.version=196609
+ro.sf.lcd_density=480
+ro.opengles.version=196608
 
+# WIFI model
+ro.carrier=wifi-only
 ro.radio.noril=yes
 
 # Dalvik/Art
@@ -21,9 +20,8 @@ dalvik.vm.heapmaxfree=8m
 ro.hwui.texture_cache_size=24
 ro.hwui.layer_cache_size=16
 ro.hwui.path_cache_size=4
-ro.hwui.texture_cache_flushrate=0.4
-ro.hwui.shape_cache_size=1
-ro.hwui.gradient_cache_size=0.5
+ro.hwui.shape_cache_size=2
+ro.hwui.gradient_cache_size=2
 ro.hwui.drop_shadow_cache_size=2
 ro.hwui.r_buffer_cache_size=2
 ro.hwui.text_small_cache_width=1024
