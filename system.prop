@@ -33,5 +33,5 @@ ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=1024
 ro.hwui.fbo_cache_size=8
 
-# FRP
-#ro.frp.pst=/dev/block/persistent
+# Force enable hardware keys
+qemu.hw.mainkeys=0 
