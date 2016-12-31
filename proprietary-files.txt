@@ -1,7 +1,7 @@
-### Bluetooth
+# Bluetooth
 vendor/firmware/bcm43455_V0097.0130.hcd
 
-### Camera
+# Camera
 cameradata/datapattern_420sp.yuv
 cameradata/datapattern_front_420sp.yuv
 lib/hw/camera.universal7580.so
@@ -17,12 +17,12 @@ bin/gpsd|7b8e3dc356cdd3147a510e1359ba7b2a084a10ce
 lib/hw/gps.default.so:lib/hw/gps.universal7580.so|1a6f58043f56013dc40891550c1b68e0ffdfb83e
 lib/libwrappergps.so|dc24f474979d846ddee113fb77109ede21d592ba
 
-### Graphics
+# Graphics (GPU)
 vendor/lib/egl/libGLES_mali.so
 
-### Media
 # S5P Multi Format Codec
 vendor/firmware/mfc_fw.bin
+
 # Image subsystem
 vendor/firmware/fimc_is_fd.bin
 vendor/firmware/fimc_is_fw2_sr261.bin
@@ -58,10 +58,10 @@ bin/mcDriverDaemon|963be9890bb73b99441a01df9cbf5615e7371a4b
 lib/libMcClient.so|f017210ec865836d97041e0c6cbbb4c56724e00c
 lib/libMcRegistry.so|39937fce1fb9c5aa746752122caa688970db3556
 
-### Misc
+# Misc
 bin/exyrngd
 
-### Noise supppression
+# Noise supppression
 vendor/etc/nxp/BargeIn/Tx_ControlParams_WIDEBAND_ANALOG_DOCK.txt
 vendor/etc/nxp/BargeIn/Tx_ControlParams_WIDEBAND_BLUETOOTH_SCO_HEADSET.txt
 vendor/etc/nxp/BargeIn/Tx_ControlParams_WIDEBAND_EARPIECE.txt
@@ -143,10 +143,10 @@ vendor/etc/nxp/mVoIPSec/Tx_ControlParams_WIDEBAND_WIRED_HEADSET.txt
 vendor/lib/liblvverx_3.27.02.so
 vendor/lib/liblvvetx_3.27.02.so
 
-### Sensors
+# Sensors
 lib/hw/sensors.universal7580.so
 
-### Widevine
+# Widevine (DRM)
 lib/liboemcrypto.so|1278049bd4792111379d9bf6ab8d65db4a829d49
 lib/libdrmdecrypt.so|446aeb0dbd02cab605afb0d65fb41faeebb3a51f
 lib/libstagefright_hdcp.so|b00256c3ad63841a7edd4664174a6d230f320a3d
@@ -156,7 +156,7 @@ vendor/lib/libWVStreamControlAPI_L1.so|6b28492ac55b9a3d86993343cf2c8b55240b3420
 vendor/lib/libwvdrm_L1.so|3eaf8ed1cb337608a1ccdb80d2c95804e7aea323
 vendor/lib/libwvm.so|7c446afdc7fd25be24903d6a980d4b45eff92794
 
-### Wifi
+# Wifi
 bin/mfgloader
 bin/wlandutservice
 etc/wifi/bcmdhd_apsta.bin
