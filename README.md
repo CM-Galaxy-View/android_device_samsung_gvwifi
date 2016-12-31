@@ -15,7 +15,7 @@ Display | 18.4"
 Front Camera  | 2.1 MP
 
 
-![Galaxy View WIFI](http://techbeasts.com/wp-content/uploads/2015/10/Galaxy-View.png "Galaxy View WIFI")
+![Galaxy View WIFI](https://s.aolcdn.com/hss/storage/midas/cc218a74b2cba5fe5630720cdf051931/202887070/galaxyview.jpg "Galaxy View WIFI")
 
 This branch is for building CyanogenMod 13.0 Firmware.
 
