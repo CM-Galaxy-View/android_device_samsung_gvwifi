@@ -411,11 +411,11 @@ service argos-daemon /system/bin/argosd
     group system radio
 
 # GPS
-service gpsd /system/bin/gpsd -c /system/etc/gps.xml
-    class main
-    user gps
-    group system inet net_raw
-    ioprio be 0
+#service gpsd /system/bin/gpsd -c /system/etc/gps.xml
+#    class main
+#    user gps
+#    group system inet net_raw
+#    ioprio be 0
 
 #service prepare_param /system/bin/prepare_param.sh /dev/block/platform/13540000.dwmmc0/by-name/PARAM
 #    class core
