@@ -38,10 +38,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/configs/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
-# GPS
-PRODUCT_PACKAGES += \
-    libdmitry
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
@@ -49,6 +45,10 @@ PRODUCT_COPY_FILES += \
 # Lights
 PRODUCT_PACKAGES += \
     lights.universal7580
+
+# Shims
+PRODUCT_PACKAGES += \
+	libsamsung_symbols
 
 # Media profile
 PRODUCT_COPY_FILES += \
@@ -75,10 +75,6 @@ PRODUCT_COPY_FILES += \
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
     wifi.interface=wlan0
-
-# SYMBOLS FOR BLOBS
-PRODUCT_PACKAGES += \
-    libsamsung_symbols
 
 # Inherit from Exynos7580-common
 $(call inherit-product, device/samsung/exynos7580-common/device-common.mk)
