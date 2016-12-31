@@ -161,6 +161,7 @@ vendor/lib/libwvm.so|7c446afdc7fd25be24903d6a980d4b45eff92794
 bin/mfgloader
 bin/wlandutservice
 etc/wifi/bcmdhd_apsta.bin
+etc/wifi/bcmdhd_ibss.bin
 etc/wifi/bcmdhd_mfg.bin
 etc/wifi/bcmdhd_sta.bin
 etc/wifi/nvram_mfg.txt
