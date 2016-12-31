@@ -136,10 +136,6 @@ vendor/etc/nxp/mVoIPSec/Tx_ControlParams_WIDEBAND_WIRED_HEADSET.txt
 vendor/lib/liblvverx_3.27.02.so
 vendor/lib/liblvvetx_3.27.02.so
 
-### RIL
-bin/rild
-lib/libsecnativefeature.so
-
 ### Sensors
 lib/hw/sensors.universal7580.so
 
