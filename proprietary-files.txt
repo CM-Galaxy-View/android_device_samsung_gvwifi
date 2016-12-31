@@ -8,6 +8,7 @@ lib/hw/camera.universal7580.so
 lib/libexynoscamera.so
 lib/libhwjpeg.so
 lib/libuniplugin.so
+lib/libsecnativefeature.so
 lib/libsensorlistener.so
 vendor/firmware/setfile_sr261.bin
 
