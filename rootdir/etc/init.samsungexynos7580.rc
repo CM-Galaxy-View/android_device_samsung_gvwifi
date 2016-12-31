@@ -310,10 +310,10 @@ on fs
     chown system system /data/system
     mkdir /data/system/gps 0771 system system
     chown system system /data/system/gps
-    rm /data/gps_started
-    rm /data/glonass_started
-    rm /data/smd_started
-    rm /data/sv_cno.info
+    rm /data/system/gps/gps_started
+    rm /data/system/gps/glonass_started
+    rm /data/system/gps/smd_started
+    rm /data/system/gps/sv_cno.info
 
 # MTP permission
     chmod 0660 /dev/usb_mtp_gadget
