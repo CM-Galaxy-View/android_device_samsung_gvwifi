@@ -142,14 +142,14 @@ vendor/lib/liblvvetx_3.27.02.so
 lib/hw/sensors.universal7580.so
 
 ### Widevine
-lib/liboemcrypto.so
-lib/libdrmdecrypt.so
-lib/libstagefright_hdcp.so
-lib/drm/libdrmwvmplugin.so
-vendor/lib/mediadrm/libwvdrmengine.so
-vendor/lib/libWVStreamControlAPI_L1.so
-vendor/lib/libwvdrm_L1.so
-vendor/lib/libwvm.so
+lib/liboemcrypto.so|1278049bd4792111379d9bf6ab8d65db4a829d49
+lib/libdrmdecrypt.so|446aeb0dbd02cab605afb0d65fb41faeebb3a51f
+lib/libstagefright_hdcp.so|b00256c3ad63841a7edd4664174a6d230f320a3d
+lib/drm/libdrmwvmplugin.so|ab8fcc99ed712f796f783d14616f2651ee1b45e5
+vendor/lib/mediadrm/libwvdrmengine.so|f596fa0147fd1a7fa7e3468039132c2520bed2ab
+vendor/lib/libWVStreamControlAPI_L1.so|6b28492ac55b9a3d86993343cf2c8b55240b3420
+vendor/lib/libwvdrm_L1.so|3eaf8ed1cb337608a1ccdb80d2c95804e7aea323
+vendor/lib/libwvm.so|7c446afdc7fd25be24903d6a980d4b45eff92794
 
 ### Wifi
 bin/mfgloader
