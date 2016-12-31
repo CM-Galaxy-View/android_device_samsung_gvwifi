@@ -18,7 +18,7 @@ lib/hw/gps.default.so:lib/hw/gps.universal7580.so|1a6f58043f56013dc40891550c1b68
 lib/libwrappergps.so|dc24f474979d846ddee113fb77109ede21d592ba
 
 # Graphics (GPU)
-vendor/lib/egl/libGLES_mali.so
+vendor/lib/egl/libGLES_mali.so|f19a2f96ee3671155e58d6a90daa11938f27bfaf
 
 # S5P Multi Format Codec
 vendor/firmware/mfc_fw.bin
