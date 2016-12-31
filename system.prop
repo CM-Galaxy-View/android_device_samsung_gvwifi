@@ -6,6 +6,9 @@ ro.opengles.version=196608
 ro.carrier=wifi-only
 ro.radio.noril=yes
 
+# Hardware rotation
+ro.sf.hwrotation=180
+
 # Dalvik/Art
 dalvik.vm.heapstartsize=8m
 dalvik.vm.heapgrowthlimit=128m
