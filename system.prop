@@ -1,5 +1,5 @@
 # Display
-ro.sf.lcd_density=480
+ro.sf.lcd_density=160
 ro.opengles.version=196608
 
 # WIFI model
