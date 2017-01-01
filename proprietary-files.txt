@@ -13,8 +13,8 @@ lib/libsensorlistener.so
 vendor/firmware/setfile_sr261.bin
 
 ### GPS
-bin/gpsd|7b8e3dc356cdd3147a510e1359ba7b2a084a10ce
-lib/hw/gps.default.so:lib/hw/gps.universal7580.so|1a6f58043f56013dc40891550c1b68e0ffdfb83e
+bin/gpsd
+lib/hw/gps.default.so:lib/hw/gps.universal7580.so
 
 ### Graphics
 vendor/lib/egl/libGLES_mali.so
