@@ -24,6 +24,9 @@ DEVICE_PATH := device/samsung/gvwifi
 # CPU
 ENABLE_CPUSETS := true
 
+# Radio
+BOARD_MODEM_TYPE := tss310
+
 # Graphics
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
