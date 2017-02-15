@@ -17,11 +17,11 @@
 # Initialise device config
 $(call inherit-product, device/samsung/gvwifi/full_gvwifi.mk)
 
-# Inherit some common CM stuff.
+# Inherit some common Lineage stuff.
 $(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := cm_gvwifi
+PRODUCT_NAME := lineage_gvwifi
 PRODUCT_DEVICE := gvwifi
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
