@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-# Inherit from Exynos7580-common
-include device/samsung/exynos7580-common/BoardConfigCommon.mk
+# Inherit from gv-common
+include device/samsung/gv-common/BoardConfigCommon.mk
 
 TARGET_OTA_ASSERT_DEVICE := gvwifi
 

@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Inherit from gv-common
+$(call inherit-product, device/samsung/gv-common/device-common.mk)
+
 LOCAL_PATH := device/samsung/gvwifi
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
@@ -85,9 +88,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
-
-# Inherit from Exynos7580-common
-$(call inherit-product, device/samsung/exynos7580-common/device-common.mk)
 
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/samsung/gvwifi/gvwifi-vendor.mk)
