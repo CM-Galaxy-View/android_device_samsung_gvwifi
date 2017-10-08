@@ -50,6 +50,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     lights.universal7580
 
+# Flat device tree for boot image
+PRODUCT_PACKAGES += \
+    dtbhtoolExynos
+
 # Shims
 PRODUCT_PACKAGES += \
     libsamsung_symbols
