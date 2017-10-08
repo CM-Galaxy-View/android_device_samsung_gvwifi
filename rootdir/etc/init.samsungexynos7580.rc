@@ -6,9 +6,6 @@ import init.samsung.rc
 on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
-    # Fix 'add_tid_to_cgroup failed to write' errors
-    chmod 0660 /dev/cpuctl
-
 on init
     export LD_SHIM_LIBS "/system/lib/libexynoscamera.so|libsamsung_symbols.so"
 
@@ -55,11 +52,6 @@ on post-fs-data
     mkdir /data/firmware 0770 media system
     chown media system /data/firmware
 
-# BlowFish service
-#    mkdir /data/tee 0700 system system
-#    start tz_service
-#    setprop sys.blowfish.loaded true
-
 on boot
     # Ensure all CPUs are online (big cluster)
     write /sys/devices/system/cpu/cpu4/online 1
@@ -69,14 +61,6 @@ on boot
     write /dev/cpuset/foreground/boost/cpus 4-7
     write /dev/cpuset/background/cpus 0
     write /dev/cpuset/system-background/cpus 0-3
-
-    # override init.rc to keep plenty of large order chunks around
-    # to improve allocation times
-    # write /proc/sys/vm/min_free_kbytes 32768
-    # write /proc/sys/vm/min_free_order_shift 1
-
-    #mount debugfs /sys/kernel/debug /sys/kernel/debug
-#    setprop ro.radio.noril yes
 
     # Allow to access debugfs
     chmod 755 /sys/kernel/debug
@@ -423,11 +407,11 @@ service argos-daemon /system/bin/argosd
     group system radio
 
 # GPS
-#service gpsd /system/bin/gpsd -c /system/etc/gps.xml
-#    class main
-#    user gps
-#    group system inet net_raw
-#    ioprio be 0
+service gpsd /system/bin/gpsd -c /system/etc/gps.xml
+    class main
+    user gps
+    group system inet net_raw
+    ioprio be 0
 
 #service prepare_param /system/bin/prepare_param.sh /dev/block/platform/13540000.dwmmc0/by-name/PARAM
 #    class core
@@ -486,17 +470,6 @@ service DIAG-daemon /system/bin/diagexe
 on property:ro.debug_level=0x4f4c
     start watchdogd
 
-# LPM
-#on property:ro.bootmode=charger
-#    mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/SYSTEM /system wait ro
-#    wait /dev/block/platform/13540000.dwmmc0/by-name/EFS
-    # check_fs is not support on cm
-    #check_fs /dev/block/platform/13540000.dwmmc0/by-name/EFS ext4
-#    mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/EFS /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit
-
-#on property:ro.bootmode=charger
-#    class_start charger
-
 on property:sys.tzdaemon=Ready
     start taa_service
 
@@ -527,7 +500,7 @@ service cs_service /system/bin/cs
 
 on property:sys.mobicoredaemon.enable=true
     start cs_service
-	write /proc/iccc_ready 1
+    write /proc/iccc_ready 1
 
 # SSWAP
 service swapon /sbin/sswap -s
