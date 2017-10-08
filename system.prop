@@ -9,6 +9,12 @@ ro.radio.noril=yes
 # Hardware rotation
 ro.sf.hwrotation=180
 
+# Disable rotation
+ro.accelerometer_rotation=0
+
+# FRP
+ro.frp.pst=/dev/block/persistent
+
 # Dalvik/Art
 dalvik.vm.heapstartsize=8m
 dalvik.vm.heapgrowthlimit=128m
