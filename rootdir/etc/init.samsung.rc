@@ -28,10 +28,7 @@ on post-fs-data
 
     # Professioanl Audio
     mkdir /data/misc/jack 0770 jack system
-
-    # Audio I2C node for TFA amp
-    chmod 0660 /dev/i2c-14
-    chown system system /dev/i2c-14
+	mkdir /dev/socket/jack 0771 jack system
 
     chown system wifi /data/misc/wifi/wpa_supplicant.conf
     mkdir /data/misc/saccessory_manager 0700 system system
@@ -39,15 +36,6 @@ on post-fs-data
 
     # hatp
     mkdir /data/misc/radio/hatp 0755 radio system
-
-    # Samsung Pay
-    mkdir /efs/pfw_data 0760 spay spay
-
-    # NFC
-    mkdir /data/nfc 0700 nfc nfc
-    mkdir /data/nfc/param 0700 nfc nfc
-    mkdir /data/bcmnfc 0700 nfc nfc
-    mkdir /data/bcmnfc/param 0700 nfc nfc
 
     # h2k
     mkdir /efs/cpk 0771 radio system
@@ -68,10 +56,6 @@ on post-fs-data
     chown system system /dev/tzic
     restorecon /dev/icd
     restorecon /dev/icdr
-    
-    #SideSync
-    chown system system /dev/android_ssusbcon
-    chmod 0660 /dev/android_ssusbcon
 
     # mobicore
     mkdir /data/app/mcRegistry 0775 system system
@@ -87,35 +71,6 @@ on post-fs-data
     mkdir /dev/socket/uibc 0777 media system
     chown media system /dev/socket/uibc
     chmod 0775 /dev/socket/uibc
-
-# [ SEC_MM_DRM
-    # DRM directory creation
-    mkdir /system/etc/security/.drm 0775
-    chown root root /system/etc/security/.drm
-    chmod 0775 /system/etc/security/.drm
-
-    # Added for Playready DRM Support
-    mkdir /data/data/.drm 0775
-    chown drm system /data/data/.drm
-    chmod 0775 /data/data/.drm
-    mkdir /data/data/.drm/.playready 0775
-    chown drm system /data/data/.drm/.playready
-    chmod 0775 /data/data/.drm/.playready
-
-    # Added for Playready DCM DRM Support
-    mkdir /data/.dcmdrm 0775
-    chown drm system /data/.dcmdrm
-    chmod 0775 /data/.dcmdrm
-    mkdir /data/.dcmdrm/.playready 0775
-    chown drm system /data/.dcmdrm/.playready
-    chmod 0775 /data/.dcmdrm/.playready
-
-    # Added drm folder to copy drm plugins
-    mkdir /system/lib/drm 0775
-    chown root root /system/lib/drm
-    chmod 0775 /system/lib/drm
-
-# ]
 
 on boot
 
@@ -183,7 +138,6 @@ on boot
     chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/single_cluster0_min_freq
     chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/single_cluster0_min_freq
 
-
     # Change permission for dvfshelper
     chown radio system /sys/power/cpufreq_table
     chmod 0664 /sys/power/cpufreq_table
@@ -213,33 +167,6 @@ on boot
     chmod 0664 /sys/class/devfreq/bus_int.6/min_freq
     chmod 0664 /sys/class/devfreq/bus_int.6/max_freq
 
-    # NFC_NXP
-    setprop ro.nfc.port "I2C"
-    chmod 0660 /dev/pn547
-    chown nfc nfc /dev/pn547
-    chown nfc /dev/pn547
-    #chgrp nfc /dev/pn547
-
-    # NFC_BROADCOM
-    chmod 0600 /dev/bcm2079x
-    chown nfc nfc /dev/bcm2079x
-
-    # NFC_SLSI
-    chmod 0660 /dev/sec-nfc
-    chown nfc nfc /dev/sec-nfc
-
-    # KNOX KAP
-    chown system system /dev/knox_kap
-    chmod 0660 /dev/knox_kap
-
-    # MST/NFC Switch
-    chown spay system /dev/mst_ctrl
-    chmod 0660 /dev/mst_ctrl
-
-    #MST Factory Test
-    chown system system /sys/class/mstldo/mst_drv/transmit
-    chmod 0770 /sys/class/mstldo/mst_drv/transmit
-
     # mobicore
     chmod 0660 /dev/s5p-smem
     chown system system /dev/s5p-smem
@@ -249,18 +176,10 @@ on boot
 
     chown system system /sys/class/timed_output/vibrator/intensity
 
-    #permission for TSP, Touchkey and Wacom
+    # permission for TSP
     chown system radio /sys/class/sec/tsp/cmd
     chmod 0660 /sys/class/sec/tsp/input/enabled
     chown system system /sys/class/sec/tsp/input/enabled
-
-    chmod 0660 /sys/class/sec_touchkey/input/enabled
-    chown system system /sys/class/sec/sec_touchkey/input/enabled
-	chown system radio /sys/class/sec/sec_touchkey/brightness
-	
-	chmod 0660 /sys/class/sec/sec_epen/input/enabled
-    chown system system /sys/class/sec/sec_epen/input/enabled
-
 
     # Switch Device
     chown system radio /sys/class/sec/switch/usb_sel
@@ -273,9 +192,6 @@ on boot
     chown radio system /sys/class/secgpio_check/secgpio_check_all/gpioinit_check
     chown radio system /sys/class/secgpio_check/secgpio_check_all/gpiosleep_check
     chown radio system /sys/class/secgpio_check/secgpio_check_all/checked_sleepGPIO
-
-    # Define default initial receive window size in segments.
-    setprop net.tcp.default_init_rwnd 60
 
    # permission for CHARGING
    mkdir /efs/Battery 0775 radio system
@@ -390,52 +306,11 @@ on boot
    chmod 0664 /sys/class/power_supply/battery/batt_tune_ui_term_cur_1st
    chmod 0664 /sys/class/power_supply/battery/batt_tune_ui_term_cur_2nd
 
-# Sensors permissions
-# Accelerometer_sensor
-    chown system radio /sys/class/sensors/accelerometer_sensor/raw_data
-    chown system radio /sys/class/sensors/accelerometer_sensor/calibration
-    chown system radio /sys/class/sensors/accelerometer_sensor/reactive_alert
-    chown system radio /sys/class/sensors/accelerometer_sensor/selftest
-    chown system radio /sys/class/sensors/accelerometer_sensor/vendor
-    chown system radio /sys/class/sensors/accelerometer_sensor/name
-    chown system system /efs/calibration_data
-    chmod 0666 /efs/calibration_data
-# Proximity_sensor
-    chown system radio /sys/class/sensors/proximity_sensor/state
-    chown system radio /sys/class/sensors/proximity_sensor/raw_data
-    chown system radio /sys/class/sensors/proximity_sensor/prox_avg
-    chown system radio /sys/class/sensors/proximity_sensor/prox_cal
-    chown system radio /sys/class/sensors/proximity_sensor/prox_thresh
-    chown system radio /sys/class/sensors/proximity_sensor/thresh_high
-    chown system radio /sys/class/sensors/proximity_sensor/thresh_low
-    chown system radio /sys/class/sensors/proximity_sensor/vendor
-    chown system radio /sys/class/sensors/proximity_sensor/name
 # Light_sensor
     chown system radio /sys/class/sensors/light_sensor/lux
     chown system radio /sys/class/sensors/light_sensor/raw_data
     chown system radio /sys/class/sensors/light_sensor/vendor
     chown system radio /sys/class/sensors/light_sensor/name
-# Gyro_sensor
-    chown system radio /sys/class/sensors/gyro_sensor/power_on
-    chown system radio /sys/class/sensors/gyro_sensor/power_off
-    chown system radio /sys/class/sensors/gyro_sensor/temperature
-    chown system radio /sys/class/sensors/gyro_sensor/selftest
-    chown system radio /sys/class/sensors/gyro_sensor/selftest_dps
-    chown system radio /sys/class/sensors/gyro_sensor/vendor
-    chown system radio /sys/class/sensors/gyro_sensor/name
-# Magnetic_sensor
-    chown system radio /sys/class/sensors/magnetic_sensor/raw_data
-    chown system radio /sys/class/sensors/magnetic_sensor/vendor
-    chown system radio /sys/class/sensors/magnetic_sensor/name
-# MPL IIO
-    chown system system /dev/invensense
-    chown system system /sys/bus/iio/devices/invensense/buffer/enable
-    chown system system /sys/bus/iio/devices/invensense/buffer/length
-    chown system system /sys/bus/iio/devices/invensense/control
-    chmod 0660 /dev/invensense
-    chmod 0664 /sys/bus/iio/devices/invensense/buffer/enable
-    chmod 0664 /sys/bus/iio/devices/invensense/buffer/length
-    chmod 0664 /sys/bus/iio/devices/invensense/control
 
 #Meta event
     chown system radio /sys/class/sensors/sensor_dev/flush
@@ -457,69 +332,13 @@ on boot
 
     copy /system/etc/battery_charging_temp.data /sys/class/power_supply/battery/batt_temp_table
 
-
-service scs /system/bin/scs
-    class main
-    user system
-    group system
-    oneshot
-
-# AT Distributor for factory test
-service at_distributor /system/bin/at_distributor
-    class late_start
-    user root
-    group radio misc log
-
 # MobiCore startup
 service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF000000000000000000000001.drbin -r /system/app/mcRegistry/ffffffffd0000000000000000000000a.tlbin -r /system/app/mcRegistry/ffffffffd00000000000000000000016.tlbin
     class core
     user system
     group system
     oneshot
-
-# Sensorhub service
-service sensorhubservice /system/bin/sensorhubservice
-    class main
-    user system
-    group input
-
-# AT Distributor for factory test
-service at_distributor /system/bin/at_distributor
-    class late_start
-    user root
-    group radio misc log
-
-service DR-daemon /system/bin/ddexe
-    class main
-    user root
-    group system radio inet net_raw
-
-service BCS-daemon /system/bin/connfwexe
-    class main
-    user root
-    group system radio inet net_raw
-
-# for ethernet
-service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
-    class main
-    disabled
-    oneshot
-
-# for SmartSwitch
-service dhcpcd_usb0 /system/bin/dhcpcd -ABKL
-    class main
-    disabled
-    oneshot
     
 # for Wi-Fi only models
 on property:ro.radio.noril=yes
     stop ril-daemon
-
-on fs
-# DIAG
-service DIAG-daemon /system/bin/diagexe
-    class main
-    user root
-    group system radio inet net_raw
-
-
