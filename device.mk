@@ -82,6 +82,8 @@ PRODUCT_PACKAGES += \
 
 # Wi-fi
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/wifi/nvram_mfg.txt:system/etc/wifi/nvram_mfg.txt \
+    $(LOCAL_PATH)/configs/wifi/nvram_net.txt:system/etc/wifi/nvram_net.txt \
     $(LOCAL_PATH)/configs/wifi/cred.conf:system/etc/wifi/cred.conf \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
